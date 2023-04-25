@@ -36,7 +36,7 @@ public class Main {
     exitThread.start();
 
     try {
-      ServerSocket serverSocket = new ServerSocket(6666);
+      ServerSocket serverSocket = new ServerSocket(9999);
       ExecutorService executorService = Executors.newFixedThreadPool(20);
       for (int i = 1; i < 100; i++) {
         Socket socket = serverSocket.accept();

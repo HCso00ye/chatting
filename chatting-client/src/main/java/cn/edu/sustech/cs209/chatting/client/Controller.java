@@ -55,7 +55,7 @@ public class Controller implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     Dialog<String> dialog1 = new TextInputDialog();
-    dialog1.setTitle("Login-username");
+    dialog1.setTitle("Login");
     dialog1.setHeaderText(null);
     dialog1.setContentText("Username:");
     Optional<String> input1 = dialog1.showAndWait();
@@ -267,7 +267,7 @@ public class Controller implements Initializable {
     });
   }
 
-  //用于更新聊天内容
+
   public void setMsgLV(Message message) {
     Platform.runLater(() -> {
       mesObservableList.add(message);
@@ -276,7 +276,7 @@ public class Controller implements Initializable {
     });
   }
 
-  //用于在切换聊天对象时重新刷新聊天
+
   public void reWriteMsgLV() {
     Platform.runLater(() -> {
       mesObservableList = FXCollections.observableArrayList();
@@ -307,21 +307,15 @@ public class Controller implements Initializable {
       VBox vbox = new VBox();
       HBox hbox = new HBox();
       Button rb1 = new Button("Register");
-      rb1.setOnAction(new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent actionEvent) {
-          reg = "register";
-          stage.close();
-        }
+      rb1.setOnAction(actionEvent -> {
+        reg = "register";
+        stage.close();
       });
 
       Button rb2 = new Button("Login");
-      rb2.setOnAction(new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent actionEvent) {
-          reg = "login";
-          stage.close();
-        }
+      rb2.setOnAction(actionEvent -> {
+        reg = "login";
+        stage.close();
       });
       hbox.getChildren().addAll(rb1, rb2);
       ToggleGroup group = new ToggleGroup();

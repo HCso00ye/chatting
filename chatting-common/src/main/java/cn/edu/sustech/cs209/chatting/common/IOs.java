@@ -11,7 +11,6 @@ public class IOs {
 
     @Override
     protected void writeStreamHeader() throws IOException {
-
       super.reset();
     }
   }
@@ -19,10 +18,6 @@ public class IOs {
   public static class MyObjectInputStream extends ObjectInputStream {
     public MyObjectInputStream(InputStream in) throws IOException {
       super(in);
-    }
-
-    @Override
-    protected void readStreamHeader() {
     }
   }
 }

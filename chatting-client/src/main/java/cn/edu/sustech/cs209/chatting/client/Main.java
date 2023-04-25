@@ -12,26 +12,26 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-  public static void main(String[] args) {
-    launch();
-  }
+    public static void main(String[] args) {
+        launch();
+    }
 
-  @Override
-  public void start(Stage stage) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
 
-    stage.setScene(new Scene(fxmlLoader.load()));
-    Controller ctlr = fxmlLoader.getController();
-    stage.setTitle("Chatting Client");
-    stage.setOnCloseRequest(windowEvent -> {
-      try {
-        ctlr.moos.writeObject(new Message(System.currentTimeMillis(), ctlr.username, "Server", "exit", MsgType.EXIT));
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    });
-    stage.show();
+        stage.setScene(new Scene(fxmlLoader.load()));
+        Controller controller = fxmlLoader.getController();
+        stage.setTitle("Chatting Client");
+        stage.setOnCloseRequest(windowEvent -> {
+            try {
+                controller.moos.writeObject(new Message(System.currentTimeMillis(),controller.username,"Server","exit", MsgType.EXIT));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        stage.show();
 
 
-  }
+    }
 }

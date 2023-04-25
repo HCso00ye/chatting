@@ -21,7 +21,7 @@ public class Client {
 
 
   Client(String username, Controller controller) throws IOException {
-    socket = new Socket("localhost", 6666);
+    socket = new Socket("localhost", 9999);
     this.username = username;
 
     this.controller = controller;
